@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/88270/comprobantes-elctronicos-cliente/resources/xsd
+END
+lote.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/86338/comprobantes-elctronicos-cliente/resources/xsd/lote.xsd
+END
+factura.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/88270/comprobantes-elctronicos-cliente/resources/xsd/factura.xsd
+END
+notaDebito.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/86178/comprobantes-elctronicos-cliente/resources/xsd/notaDebito.xsd
+END
+notadebito.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/86338/comprobantes-elctronicos-cliente/resources/xsd/notadebito.xsd
+END
+guiaRemision.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/86178/comprobantes-elctronicos-cliente/resources/xsd/guiaRemision.xsd
+END
+guiaremision.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/86338/comprobantes-elctronicos-cliente/resources/xsd/guiaremision.xsd
+END
+notaCredito.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/86178/comprobantes-elctronicos-cliente/resources/xsd/notaCredito.xsd
+END
+notacredito.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/86338/comprobantes-elctronicos-cliente/resources/xsd/notacredito.xsd
+END
+comprobanteRetencion.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/86178/comprobantes-elctronicos-cliente/resources/xsd/comprobanteRetencion.xsd
+END
+comprobanteretencion.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/86338/comprobantes-elctronicos-cliente/resources/xsd/comprobanteretencion.xsd
+END
