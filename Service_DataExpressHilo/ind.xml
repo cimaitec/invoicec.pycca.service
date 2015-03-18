@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entries>
+    <entry key="mykey1" attr="attr1"/>
+    <entry key="mykey2" attr="attr2"/>
+    <otherentry key="mykey1" attr="attr3"/>
+    <entry key="mykey4"/>
+    <otherentry key="mykey4"/>
+</entries>

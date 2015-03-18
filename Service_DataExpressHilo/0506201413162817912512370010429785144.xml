@@ -1,0 +1,731 @@
+<?xml version='1.0' encoding='UTF-8' ?> <autorizacion> <estado>AUTORIZADO</estado> <numeroAutorizacion>0506201413162817912512370010429785144</numeroAutorizacion> <fechaAutorizacion class='fechaAutorizacion'>05/06/2014 13:16:28</fechaAutorizacion> <comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?><factura id="comprobante" version="1.0.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>Consorcio Ecuatoriano de Telecomunicaciones S.A. CONECEL</razonSocial>
+    <nombreComercial>CLARO</nombreComercial>
+    <ruc>1791251237001</ruc>
+    <claveAcceso>0406201401179125123700120010640001759480513070215</claveAcceso>
+    <codDoc>01</codDoc>
+    <estab>001</estab>
+    <ptoEmi>064</ptoEmi>
+    <secuencial>000175948</secuencial>
+    <dirMatriz>Cdla. Kennedy Norte. Av. Fco. Orellana S/N y Av.Alberto Borges, Guayaquil</dirMatriz>
+  </infoTributaria>
+  <infoFactura>
+    <fechaEmision>04/06/2014</fechaEmision>
+    <dirEstablecimiento>Cdla. Kennedy Norte. Av. Fco. Orellana S/N y Av.Alberto Borges, Guayaquil</dirEstablecimiento>
+    <contribuyenteEspecial>5368</contribuyenteEspecial>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionComprador>04</tipoIdentificacionComprador>
+    <razonSocialComprador>FIDEICOMISO TITULARI ZACION OMNI HOSPITAL</razonSocialComprador>
+    <identificacionComprador>0992426187001</identificacionComprador>
+    <totalSinImpuestos>2453.20</totalSinImpuestos>
+    <totalDescuento>0.00</totalDescuento>
+    <totalConImpuestos>
+      <totalImpuesto>
+        <codigo>2</codigo>
+        <codigoPorcentaje>2</codigoPorcentaje>
+        <baseImponible>2452.45</baseImponible>
+        <valor>294.29</valor>
+      </totalImpuesto>
+      <totalImpuesto>
+        <codigo>2</codigo>
+        <codigoPorcentaje>0</codigoPorcentaje>
+        <baseImponible>0.75</baseImponible>
+        <valor>0.00</valor>
+      </totalImpuesto>
+    </totalConImpuestos>
+    <propina>00.00</propina>
+    <importeTotal>2747.49</importeTotal>
+    <moneda>DOLAR</moneda>
+  </infoFactura>
+  <detalles>
+    <detalle>
+      <codigoPrincipal>EV131</codigoPrincipal>
+      <descripcion>Ajuste Distribuido</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>731.55</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>731.55</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>731.55</baseImponible>
+          <valor>87.79</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV263</codigoPrincipal>
+      <descripcion>EMAIL MOVIL PLUS ILIMITADO</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>19.99</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>19.99</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>19.99</baseImponible>
+          <valor>2.40</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV302</codigoPrincipal>
+      <descripcion>Gastos Administrativos</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>0.65</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>0.65</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>0.65</baseImponible>
+          <valor>0.08</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV048</codigoPrincipal>
+      <descripcion>IDEAS Descargas</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>2.16</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>2.16</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>2.16</baseImponible>
+          <valor>0.26</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV053</codigoPrincipal>
+      <descripcion>IDEAS GPRS Eventos</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>5.88</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>5.88</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>5.88</baseImponible>
+          <valor>0.71</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV049</codigoPrincipal>
+      <descripcion>IDEAS MMS Eventos</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>1.17</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>1.17</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>1.17</baseImponible>
+          <valor>0.14</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV050</codigoPrincipal>
+      <descripcion>IDEAS SMS Eventos</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>14.54</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>14.54</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>14.54</baseImponible>
+          <valor>1.74</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV059</codigoPrincipal>
+      <descripcion>IDEAS SMS Eventos a otras oper</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>34.15</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>34.15</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>34.15</baseImponible>
+          <valor>4.10</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV051</codigoPrincipal>
+      <descripcion>IDEAS SMS Interactivo</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>214.63</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>214.63</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>214.63</baseImponible>
+          <valor>25.76</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV060</codigoPrincipal>
+      <descripcion>IDEAS SMS Internacional</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>7.87</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>7.87</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>7.87</baseImponible>
+          <valor>0.94</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV354</codigoPrincipal>
+      <descripcion>INTERNET MOVIL 1000 MB</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>79.96</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>79.96</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>79.96</baseImponible>
+          <valor>9.60</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV360</codigoPrincipal>
+      <descripcion>Internet Movil 100 Mb</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>44.56</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>44.56</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>44.56</baseImponible>
+          <valor>5.35</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV359</codigoPrincipal>
+      <descripcion>Internet Movil 20 Mb</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>19.36</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>19.36</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>19.36</baseImponible>
+          <valor>2.32</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV361</codigoPrincipal>
+      <descripcion>Internet Movil 200 Mb</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>22.61</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>22.61</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>22.61</baseImponible>
+          <valor>2.71</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV362</codigoPrincipal>
+      <descripcion>Internet Movil 300 Mb</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>21.91</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>21.91</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>21.91</baseImponible>
+          <valor>2.63</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV363</codigoPrincipal>
+      <descripcion>Internet Movil 500 Mb</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>44.97</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>44.97</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>44.97</baseImponible>
+          <valor>5.40</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL058</codigoPrincipal>
+      <descripcion>Llamada Claro a Claro in Pool</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>11.30</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>11.30</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>11.30</baseImponible>
+          <valor>1.36</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL016</codigoPrincipal>
+      <descripcion>Llamadas 1700 a otra red</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>0.09</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>0.09</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>0.09</baseImponible>
+          <valor>0.01</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL017</codigoPrincipal>
+      <descripcion>Llamadas 1800 a otra red</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>1.72</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>1.72</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>1.72</baseImponible>
+          <valor>0.21</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL003</codigoPrincipal>
+      <descripcion>Llamadas Claro a Claro</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>505.91</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>505.91</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>505.91</baseImponible>
+          <valor>60.71</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL023</codigoPrincipal>
+      <descripcion>Llamadas Claro a Fijas</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>95.58</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>95.58</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>95.58</baseImponible>
+          <valor>11.47</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL004</codigoPrincipal>
+      <descripcion>Llamadas Claro a Otecel</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>404.26</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>404.26</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>404.26</baseImponible>
+          <valor>48.51</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL022</codigoPrincipal>
+      <descripcion>Llamadas Claro a Telecsa</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>73.17</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>73.17</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>73.17</baseImponible>
+          <valor>8.78</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>CL024</codigoPrincipal>
+      <descripcion>Llamadas Internacionales</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>43.73</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>43.73</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>43.73</baseImponible>
+          <valor>5.25</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV290</codigoPrincipal>
+      <descripcion>MMS Eventos a Otecel S.A.</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>0.50</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>0.50</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>0.50</baseImponible>
+          <valor>0.06</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV243</codigoPrincipal>
+      <descripcion>Promo Doble Navegación</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>21.28</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>21.28</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>21.28</baseImponible>
+          <valor>2.55</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV151</codigoPrincipal>
+      <descripcion>Promo Minutos Adic</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>8.96</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>8.96</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>8.96</baseImponible>
+          <valor>1.08</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>PV730</codigoPrincipal>
+      <descripcion>Servicio Black BIS Full 1000MB</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>19.99</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>19.99</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="NO"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>12.00</tarifa>
+          <baseImponible>19.99</baseImponible>
+          <valor>2.40</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+    <detalle>
+      <codigoPrincipal>EV045</codigoPrincipal>
+      <descripcion>Roaming Mensajes SMS (Env.)</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>0.75</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>0.75</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="ExImpuestos" valor="SI"/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>0</codigoPorcentaje>
+          <tarifa>0.00</tarifa>
+          <baseImponible>0.75</baseImponible>
+          <valor>0.00</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+  </detalles>
+  <infoAdicional>
+    <campoAdicional nombre="direccionCliente">AV ABEL CASTILLO Y AV JUAN TANCA MARENGOEDIF OMNI HOSPITAL</campoAdicional>
+    <campoAdicional nombre="correoCliente">nodefinido.facturaelectronica@claro.com.ec</campoAdicional>
+    <campoAdicional nombre="telefonoCliente">0997343204</campoAdicional>
+    <campoAdicional nombre="cuentaCliente">6.217101</campoAdicional>
+    <campoAdicional nombre="glosaLegal">Para atención de reclamos no resueltos por la operadora, llame gratis a la Superintendencia de Telecomunicaciones al 1800-567-567 o al número 159 desde su celular, también puede hacerlo escribiendo al correo electrónico cir@supertel.gob.ec</campoAdicional>
+    <campoAdicional nombre="banner1">Banner1</campoAdicional>
+    <campoAdicional nombre="banner2">Banner2</campoAdicional>
+    <campoAdicional nombre="formaPago">VIP - CONTRAFACTURA</campoAdicional>
+    <campoAdicional nombre="fechaPago">23/06/2014</campoAdicional>
+    <campoAdicional nombre="ciudad">GUAYAQUIL</campoAdicional>
+    <campoAdicional nombre="ciudademision">Guayaquil</campoAdicional>
+    <campoAdicional nombre="valoraPagar">3104.03</campoAdicional>
+    <campoAdicional nombre="fechaCorte">01/06/2014</campoAdicional>
+  </infoAdicional>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature1016281">
+<ds:SignedInfo Id="Signature-SignedInfo804852">
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference Id="SignedPropertiesID129434" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature1016281-SignedProperties454615">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>7w4ddGxykEhgzP8LCQ11mq6Vock=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#Certificate1752604">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>e/qF4jfKmfKqoG+UelGNtPI4u0w=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Id="Reference-ID-824940" URI="#comprobante">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>8xkf1Eg1WkgiVjZzIPSeTGqVDl8=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="SignatureValue736080">
+ZdZtCrjZbdgd0fdRY9tJZA/m2BnwiO1eXujtSAL+wGAA0p+6qKV7fG0yodZkB2CJl3jiKtE3nzcf
+qr00MawDdkpCIOZZRHg/kSvqrOppcXlOGzGwzyHWFiC2+WyH/dlpaW1QFp2FfwMEzEBnyats2cqu
+Kz101z/t/wzeCFRPrAJtfK6V4hfsWEvIbUbzNCJ31v6MQ7x5k+L+lpg3rhSzv/J+lwpbXnUkyfJQ
+I3LYf87/zdTzGbF/y4d2DrqRKnFvWP/JqBm3P5+GM677TLjdiRZkdOhduqduSwSO9I0CtSDzzwJd
+RUAO5ZneHWJvM9ELxOD8uNbvF/g/5AC9JHrHpQ==
+</ds:SignatureValue>
+<ds:KeyInfo Id="Certificate1752604">
+<ds:X509Data>
+<ds:X509Certificate>
+MIIKETCCCPmgAwIBAgIETV2o7TANBgkqhkiG9w0BAQsFADCBkzELMAkGA1UEBhMCRUMxGzAZBgNV
+BAoTElNFQ1VSSVRZIERBVEEgUy5BLjEwMC4GA1UECxMnRU5USURBRCBERSBDRVJUSUZJQ0FDSU9O
+IERFIElORk9STUFDSU9OMTUwMwYDVQQDEyxBVVRPUklEQUQgREUgQ0VSVElGSUNBQ0lPTiBTVUIg
+U0VDVVJJVFkgREFUQTAeFw0xMzEyMDYxODE2MzRaFw0xNTEyMDYxODQ2MzRaMIGCMQswCQYDVQQG
+EwJFQzEbMBkGA1UEChMSU0VDVVJJVFkgREFUQSBTLkEuMTAwLgYDVQQLEydFTlRJREFEIERFIENF
+UlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04xJDAiBgNVBAMTG01hcmlvIEFudG9uaW8gQXljYXJ0
+IExlY2FybzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL8LNnpknji483r7f9BTKWHq
+iUNXLqULQNHWBGzmrXi9y/yod4y1hyE0l1OzOq8j55aJUsuA2cLvTZ/6GVz+pEA/mekX7zYolRhn
+DgCsGOMmeo4bndMI/5+tKRsAJCcE5tc4TtTR8ZOEqeLwhf9HvVPrQI2kyAGjmt2feqhHQPcY6Xqd
+bwwh5D62YH8n4lmfVpmDyQSM9n3dg1pti34QRfvJdps3bUt1FEpF1D+8dGcxOGVovQ075rukpuXj
+ZxL1nA/c2y+QAa9O7bsa96ya7YMb9hzohWzGuk6VWedeBba1Z+1CLBwpTpfb42Bxjc8EWf1XB7j/
+2b1haOT/XvkptGUCAwEAAaOCBnowggZ2MAsGA1UdDwQEAwIGwDBZBggrBgEFBQcBAQRNMEswSQYI
+KwYBBQUHMAGGPWh0dHA6Ly9vY3NwZ3cuc2VjdXJpdHlkYXRhLm5ldC5lYy9lamJjYS9wdWJsaWN3
+ZWIvc3RhdHVzL29jc3AwgcoGA1UdIASBwjCBvzA/BgorBgEEAYKmcgIKMDEwLwYIKwYBBQUHAgIw
+IxohQ2VydGlmaWNhZG8gZGUgTWllbWJybyBkZSBFbXByZXNhMHwGCisGAQQBgqZyAgQwbjBsBggr
+BgEFBQcCARZgaHR0cHM6Ly93d3cuc2VjdXJpdHlkYXRhLm5ldC5lYy9sZXllc19ub3JtYXRpdmFz
+L1BvbGl0aWNhcyBkZSBDZXJ0aWZpY2FkbyBNaWVtYnJvIGRlIEVtcHJlc2EucGRmMEgGCisGAQQB
+gqZyAwoEOhM4Q09OU09SQ0lPIEVDVUFUT1JJQU5PIERFIFRFTEVDT01VTklDQUNJT05FUyBTLkEu
+IENPTkVDRUwwHQYKKwYBBAGCpnIDCwQPEw0xNzkxMjUxMjM3MDAxMBoGCisGAQQBgqZyAwEEDBMK
+MDkxNzM3NjgyNDAdBgorBgEEAYKmcgMCBA8TDU1hcmlvIEFudG9uaW8wFgYKKwYBBAGCpnIDAwQI
+EwZBeWNhcnQwFgYKKwYBBAGCpnIDBAQIEwZMZWNhcm8wMAYKKwYBBAGCpnIDBQQiEyBKZWZlIGRl
+IEJpbGxpbmcgZSBJbnRlcmNvbmV4Y2lvbjBGBgorBgEEAYKmcgMHBDgTNkF2ZW5pZGEgRnJhbmNp
+c2NvIGRlIE9yZWxsYW5hIHkgQXZlbmlkYSBBbGJlcnRvIEJvcmdlczAWBgorBgEEAYKmcgMiBAgT
+BjA5MDUxMjAdBgorBgEEAYKmcgMIBA8TDTU5My00LTUwMDQwNDAwGQYKKwYBBAGCpnIDCQQLEwlH
+dWF5YXF1aWwwFwYKKwYBBAGCpnIDDAQJEwdFY3VhZG9yMB0GCisGAQQBgqZyAx0EDxMNMTc5MTI1
+MTIzNzAwMTAhBgorBgEEAYKmcgMgBBMTETAwMS0wMDItMDAwMDAyNTYwMBMGCisGAQQBgqZyAyEE
+BRMDUEZYMB8GA1UdEQQYMBaBFG1heWNhcnRAY2xhcm8uY29tLmVjMIICeQYDVR0fBIICcDCCAmww
+ggJooIICZKCCAmCGPWh0dHA6Ly9vY3NwZ3cuc2VjdXJpdHlkYXRhLm5ldC5lYy9lamJjYS9wdWJs
+aWN3ZWIvc3RhdHVzL29jc3CGgdRsZGFwOi8vZGlyZWN0LnNlY3VyaXR5ZGF0YS5uZXQuZWMvY249
+Q1JMNDgsY249QVVUT1JJREFEJTIwREUlMjBDRVJUSUZJQ0FDSU9OJTIwU1VCJTIwU0VDVVJJVFkl
+MjBEQVRBLG91PUVOVElEQUQlMjBERSUyMENFUlRJRklDQUNJT04lMjBERSUyMElORk9STUFDSU9O
+LG89U0VDVVJJVFklMjBEQVRBJTIwUy5BLixjPUVDP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/
+YmFzZYaBnmh0dHBzOi8vZGlyZWN0LnNlY3VyaXR5ZGF0YS5uZXQuZWMvfmNybC9hdXRvcmlkYWRf
+ZGVfY2VydGlmaWNhY2lvbl9zdWJfc2VjdXJpdHlfZGF0YV9lbnRpZGFkX2RlX2NlcnRpZmljYWNp
+b25fZGVfaW5mb3JtYWNpb25fY3VyaXR5X2RhdGFfcy5hLl9jX2VjX2NybGZpbGUuY3JspIGmMIGj
+MQswCQYDVQQGEwJFQzEbMBkGA1UEChMSU0VDVVJJVFkgREFUQSBTLkEuMTAwLgYDVQQLEydFTlRJ
+REFEIERFIENFUlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04xNTAzBgNVBAMTLEFVVE9SSURBRCBE
+RSBDRVJUSUZJQ0FDSU9OIFNVQiBTRUNVUklUWSBEQVRBMQ4wDAYDVQQDEwVDUkw0ODArBgNVHRAE
+JDAigA8yMDEzMTIwNjE4MTYzNFqBDzIwMTUxMTIyMDM0NjM0WjAfBgNVHSMEGDAWgBT3L0zgdedi
+o3iWWwa2LnE7zGw/kDAdBgNVHQ4EFgQUM+PNXoUzmK8Rgdx9kQ3gLk1/2P0wCQYDVR0TBAIwADAZ
+BgkqhkiG9n0HQQAEDDAKGwRWOC4xAwIDqDANBgkqhkiG9w0BAQsFAAOCAQEASmTj9snqr6SekX3z
+VdqMYn3Vwt4W+hDVgSoDu6Kzg0R45EZvWIwttZOCJDLmzabCg/KVqGlSTfgtI574Ytln6l4iWRdx
+xIgWYgQmE+oYMJr2EYTGOOMso/Fx3dlhTgb2qcmHA9sLzVS2AFB68Y6jFe51PzC3aRmkvREuZyi5
+9/Ritm/HHvidCKvCZrUYDLiFNcitcM8R3SCeYsUml4xG04N0QLGmMCrk4zTqZv1SxPdsotJjKC1f
+p5d7MGxrzHZgPlzFHlAXSvEkiH9alFD5cMvbJGLgcA8RySGC1s5ttZ7cT5+9pWs8Q+tbyqx6IOF+
+9bs7xjwhlOtNZPdVEVQAfg==
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+vws2emSeOLjzevt/0FMpYeqJQ1cupQtA0dYEbOateL3L/Kh3jLWHITSXU7M6ryPnlolSy4DZwu9N
+n/oZXP6kQD+Z6RfvNiiVGGcOAKwY4yZ6jhud0wj/n60pGwAkJwTm1zhO1NHxk4Sp4vCF/0e9U+tA
+jaTIAaOa3Z96qEdA9xjpep1vDCHkPrZgfyfiWZ9WmYPJBIz2fd2DWm2LfhBF+8l2mzdtS3UUSkXU
+P7x0ZzE4ZWi9DTvmu6Sm5eNnEvWcD9zbL5ABr07tuxr3rJrtgxv2HOiFbMa6TpVZ514FtrVn7UIs
+HClOl9vjYHGNzwRZ/VcHuP/ZvWFo5P9e+Sm0ZQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+<ds:Object Id="Signature1016281-Object917487"><etsi:QualifyingProperties Target="#Signature1016281"><etsi:SignedProperties Id="Signature1016281-SignedProperties454615"><etsi:SignedSignatureProperties><etsi:SigningTime>2014-06-05T13:09:39-05:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>AoY8chbWtnHJIKB/PjYtA5ZeZq4=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AUTORIDAD DE CERTIFICACION SUB SECURITY DATA,OU=ENTIDAD DE CERTIFICACION DE INFORMACION,O=SECURITY DATA S.A.,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1297983725</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-824940"><etsi:Description>comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></factura>]]> </comprobante> </autorizacion>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Order>
+       <Ordernumber Number="1111">
+              <OrderedItem1>Pepsi</OrderedItem1>
+              <OrderitemPrice>100</OrderitemPrice>
+              <OrderitemTax>10</OrderitemTax>
+              
+       <OrderCoupon>NEWYEAR</OrderCoupon></Ordernumber>
+</Order>
