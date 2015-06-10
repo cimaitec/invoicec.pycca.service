@@ -301,8 +301,7 @@ public class ReporteUtil extends GenericTransaction
 	   return numcred;
    }
  
-    public void generarReporteNotaDebito(String urlReporte, String numrep)
-     throws SQLException, ClassNotFoundException
+    public void generarReporteNotaDebito(String urlReporte, String numrep) throws SQLException, ClassNotFoundException
     {
     	FileInputStream is = null;
     	try
@@ -350,28 +349,28 @@ public class ReporteUtil extends GenericTransaction
     				is.close();
     		}
     		catch (IOException ex1) {
-/* 289 */         Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, ex1);
+    			Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, ex1);
        }
      }
      catch (JRException e)
      {
-/* 281 */       Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, e);
-/* 282 */       e.printStackTrace();
+    	 Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, e);
+    	 e.printStackTrace();
        try
        {
-/* 285 */         if (is != null)
-/* 286 */           is.close();
+    	   if (is != null)
+    		   is.close();
        }
        catch (IOException ex) {
-/* 289 */         Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, ex);
+    	   Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, ex);
        }
      }
      finally
      {
        try
        {
-/* 285 */         if (is != null)
-/* 286 */           is.close();
+    	   if (is != null)
+    		   is.close();
        }
        catch (IOException ex) {
     	   Logger.getLogger(ReporteUtil.class.getName()).log(Level.SEVERE, null, ex);

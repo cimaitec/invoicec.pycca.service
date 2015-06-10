@@ -82,75 +82,78 @@ public class ServiceDataCT extends GenericTransaction
 		
 		while ((Environment.cf.readCtrl().equals("S")))
 		{
-			int limite = Integer.parseInt(Environment.c.getString("facElectronica.general.AUTORIZACION.limiteConsultaRecibidos"));
-			int minutos = Integer.parseInt(Environment.c.getString("facElectronica.general.AUTORIZACION.minutosEntreConsultas"));
-
-			Listcontenido = emite.getTrxRecibidos(ruc, "CT", minutos, limite);
-			
-			if (Listcontenido !=null)
+			if(Environment.c.getString("facElectronica.general.AUTORIZACION.activadoConsultaContingencia").equals("S"))
 			{
-				if(Listcontenido.size()>0)
+				int limite = Integer.parseInt(Environment.c.getString("facElectronica.general.AUTORIZACION.limiteConsultaRecibidos"));
+				int minutos = Integer.parseInt(Environment.c.getString("facElectronica.general.AUTORIZACION.minutosEntreConsultas"));
+
+				Listcontenido = emite.getTrxRecibidos(ruc, "CT", minutos, limite);
+				
+				if (Listcontenido !=null)
 				{
-					for (int i=0; i < Listcontenido.size(); i++)
+					if(Listcontenido.size()>0)
 					{
-						try
+						for (int i=0; i < Listcontenido.size(); i++)
 						{
-							String nameXml = Listcontenido.get(i).getAmbiente() +
-								  		     ruc +
-								  		     Listcontenido.get(i).getCodigoDocumento()+
-								  		     Listcontenido.get(i).getCodEstablecimiento()+
-								  		     Listcontenido.get(i).getCodPuntoEmision()+
-								  		     Listcontenido.get(i).getSecuencial()+".xml";
-						
-							Listcontenido.get(i).setFilexml(nameXml);
-							
-							CabDoc.setAmbiente(Listcontenido.get(i).getAmbiente());
-							CabDoc.setRuc(ruc);
-							CabDoc.setCodEstablecimiento(Listcontenido.get(i).getCodEstablecimiento());
-							CabDoc.setCodPuntEmision(Listcontenido.get(i).getCodPuntoEmision());
-							CabDoc.setSecuencial(Listcontenido.get(i).getSecuencial());
-							CabDoc.setCodigoDocumento(Listcontenido.get(i).getCodigoDocumento());
-							
-							File fileFirmado = ArchivoUtils.stringToArchivo(infEmp.getDirContingencias()+"Testing.xml", "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ec=\"http://ec.gob.sri.ws.recepcion\">   <soapenv:Header/>   <soapenv:Body>      <ec:validarComprobante>         <xml>cid:22869388362</xml>      </ec:validarComprobante>   </soapenv:Body></soapenv:Envelope>");
-							ec.gob.sri.comprobantes.ws.RespuestaSolicitud respuestaRecepcion = new ec.gob.sri.comprobantes.ws.RespuestaSolicitud();
-							
 							try
 							{
-								respuestaRecepcion = solicitudRecepcion(fileFirmado, emite, 2000);
-			      	  			System.out.println("  Contingencia Respuesta recepcion estado-->"+respuestaRecepcion.getEstado());
-			      	  			logContingencia.debug(">>PruebaEnvioSolicitudRecepcion-->"+respuestaRecepcion);
-			      	  			if (respuestaRecepcion.getEstado().equals("DEVUELTA"))
-			      	  				flagServiceDisponible = true;
-			      	  		}catch(Exception e){
-			      	  			flagServiceDisponible = false;
-			      	  		}
+								String nameXml = Listcontenido.get(i).getAmbiente() +
+									  		     ruc +
+									  		     Listcontenido.get(i).getCodigoDocumento()+
+									  		     Listcontenido.get(i).getCodEstablecimiento()+
+									  		     Listcontenido.get(i).getCodPuntoEmision()+
+									  		     Listcontenido.get(i).getSecuencial()+".xml";
 							
-							if (flagServiceDisponible)
-			      	  		{
-								System.out.println("  Contingencia --> Paso a generados");
-								File docContingencia = new File(infEmp.getDirContingencias() + Listcontenido.get(i).getFilexml());
-								if (docContingencia.exists())
+								Listcontenido.get(i).setFilexml(nameXml);
+								
+								CabDoc.setAmbiente(Listcontenido.get(i).getAmbiente());
+								CabDoc.setRuc(ruc);
+								CabDoc.setCodEstablecimiento(Listcontenido.get(i).getCodEstablecimiento());
+								CabDoc.setCodPuntEmision(Listcontenido.get(i).getCodPuntoEmision());
+								CabDoc.setSecuencial(Listcontenido.get(i).getSecuencial());
+								CabDoc.setCodigoDocumento(Listcontenido.get(i).getCodigoDocumento());
+								
+								File fileFirmado = ArchivoUtils.stringToArchivo(infEmp.getDirContingencias()+"Testing.xml", "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ec=\"http://ec.gob.sri.ws.recepcion\">   <soapenv:Header/>   <soapenv:Body>      <ec:validarComprobante>         <xml>cid:22869388362</xml>      </ec:validarComprobante>   </soapenv:Body></soapenv:Envelope>");
+								ec.gob.sri.comprobantes.ws.RespuestaSolicitud respuestaRecepcion = new ec.gob.sri.comprobantes.ws.RespuestaSolicitud();
+								
+								try
 								{
-									ArchivoUtils.stringToArchivo(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml(),
-					   						ArchivoUtils.archivoToString(infEmp.getDirContingencias() + Listcontenido.get(i).getFilexml()));
-									System.out.println("  Contingencia --> Pasado a generados");
-								}
-			      	  		}
-							else
-								Thread.currentThread().sleep(30000);
+									respuestaRecepcion = solicitudRecepcion(fileFirmado, emite, 2000);
+				      	  			System.out.println("  Contingencia Respuesta recepcion estado-->"+respuestaRecepcion.getEstado());
+				      	  			logContingencia.debug(">>PruebaEnvioSolicitudRecepcion-->"+respuestaRecepcion);
+				      	  			if (respuestaRecepcion.getEstado().equals("DEVUELTA"))
+				      	  				flagServiceDisponible = true;
+				      	  		}catch(Exception e){
+				      	  			flagServiceDisponible = false;
+				      	  		}
+								
+								if (flagServiceDisponible)
+				      	  		{
+									System.out.println("  Contingencia --> Paso a generados");
+									File docContingencia = new File(infEmp.getDirContingencias() + Listcontenido.get(i).getFilexml());
+									if (docContingencia.exists())
+									{
+										ArchivoUtils.stringToArchivo(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml(),
+						   						ArchivoUtils.archivoToString(infEmp.getDirContingencias() + Listcontenido.get(i).getFilexml()));
+										System.out.println("  Contingencia --> Pasado a generados");
+									}
+				      	  		}
+								else
+									Thread.currentThread().sleep(30000);
+							
+							}catch(Exception excep)
+							{
+								System.out.println(" ");
+								System.out.println("  DataCT --> Sin respuesta");
+								excep.printStackTrace();  
+							}
 						
-						}catch(Exception excep)
-						{
-							System.out.println(" ");
-							System.out.println("  DataCT --> Sin respuesta");
-							excep.printStackTrace();  
 						}
-					
 					}
 				}
 			}
     	
-			Thread.sleep(60000);
+			Thread.sleep(30000);
 		}
 	}
 	

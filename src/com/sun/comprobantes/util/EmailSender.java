@@ -208,7 +208,7 @@ public class EmailSender {
 				
 				
 				// Para imagenes
-				if(!this.logoFirma.equals("") && tipoMail.equals("HTML"))
+				if(this.logoFirma!=null &&  !this.logoFirma.equals("") && tipoMail.equals("HTML"))
 				{
 					MimeBodyPart imagePart = new MimeBodyPart();
 					imagePart.setHeader("Content-ID", "<logo_firma>");

@@ -36,6 +36,8 @@ public class Emisor
 	private String ruta;
 	private String nameFile;
 	private String claveAcceso;
+	private String claveContingencia;
+	private String mensajeError;
 	private String estadoAutorizacion;
 	private String numeroAutorizacion;
 	private String fechaAutorizacion;
@@ -78,6 +80,22 @@ public class Emisor
 		this.claveAcceso = claveAcceso;
 	}
 
+	public String getClaveContingencia() {
+		return claveContingencia;
+	}
+	public void setClaveContingencia(String claveContingencia) {
+		this.claveContingencia = claveContingencia;
+	}
+	
+	
+	
+	
+	public String getMensajeError() {
+		return mensajeError;
+	}
+	public void setMensajeError(String mensajeError) {
+		this.mensajeError = mensajeError;
+	}
 	public Emisor() {
 		infEmisor = new InformacionTributaria();
 	}
@@ -591,6 +609,49 @@ public class Emisor
 		return existPuntoEmision;
 	}
 	
+	public boolean existeDocumentoEnEstado(Emisor emite, String estado) throws SQLException, IOException, NamingException, ClassNotFoundException
+	{
+		Connection Con = ConexionBase.getConexionBD();
+		boolean existDocumentoEstado = false;
+		
+		ResultSet Rs= null;
+    	PreparedStatement pst = null;
+    	try{
+	    	String sql = " SELECT 1 " +
+	    				 " from " + ConexionBase.getSchema() + "fac_cab_documentos "
+	    				 + " where ambiente = ? "
+	    				 + " and \"Ruc\" = ? "
+	    				 + " and \"CodEstablecimiento\" =  ? "
+	    				 + " and \"CodPuntEmision\" =  ?  "
+	    				 + " and secuencial = ? "
+	    				 + " and \"CodigoDocumento\" = ? "
+	    				 + " and \"ESTADO_TRANSACCION\" = ? ";
+	    	pst = Con.prepareStatement(sql);
+	    	pst.setInt(1, emite.getInfEmisor().getAmbiente());
+	    	pst.setString(2, emite.getInfEmisor().getRuc());
+	    	pst.setString(3, emite.getInfEmisor().getCodEstablecimiento());
+	    	pst.setString(4, emite.getInfEmisor().getCodPuntoEmision());
+	    	pst.setString(5, emite.getInfEmisor().getSecuencial());
+	    	pst.setString(6, emite.getInfEmisor().getTipoComprobante());
+	    	pst.setString(7, estado);
+	    	Rs= pst.executeQuery();
+	    	while (Rs.next()){ 
+	    		existDocumentoEstado = true;	    		
+	    	}
+    	}catch(Exception e){
+        	e.printStackTrace();
+    	}
+    	finally{
+    		Rs.close();
+        	pst.close();
+        	Con.close();
+    	}
+		return existDocumentoEstado;
+		
+	}
+	
+	
+	
 	public String ambienteDocumentoPuntoEmision(String ps_ruc, String ps_CodEstablecimiento, String ps_CodPuntoEmision, String tipoDocumento) throws SQLException, IOException, NamingException, ClassNotFoundException
 	{		
 		Connection Con = ConexionBase.getConexionBD();
@@ -805,6 +866,41 @@ public class Emisor
 		System.out.println("-- FIN Emisor.insertaBitacoraDocumento --");
 		return resultado;
 	}
+	
+	
+	
+	
+	//HFU
+	public int insertaBitacoraDocumento(String ps_fechaEmision,									    
+		    							String ps_estadoTransaccion,
+		    							String ps_msgProceso,
+		    							String ps_msgError,
+		    							String ps_xmlGenerado,
+		    							String ps_xmlFirmado,
+		    							String ps_xmlRespuesta,
+		    							String ps_xmlAutorizacion
+		    						) throws Exception
+	{
+		System.out.println("-- INICIO Emisor.insertaBitacoraDocumento --");
+		int resultado = 0;
+		if (ServiceData.databaseMotor.equals("PostgreSQL")){
+		resultado = insertaBitacoraDocumentoPostgreSQL(String.valueOf(this.infEmisor.getAmbiente()), 		this.infEmisor.getRuc(), 		this.infEmisor.getCodEstablecimiento(),
+													   this.infEmisor.getCodPuntoEmision(), this.infEmisor.getSecuencial(), this.infEmisor.getTipoComprobante(),
+													   ps_fechaEmision, 					ps_estadoTransaccion, 			ps_msgProceso,
+													   ps_msgError,							ps_xmlGenerado,					ps_xmlFirmado,
+													   ps_xmlRespuesta,						ps_xmlAutorizacion,				(this.infEmisor.getTipoEmision()==null?"1":this.infEmisor.getTipoEmision()));
+		}
+		if (ServiceData.databaseMotor.equals("SQLServer")){
+		resultado = insertaBitacoraDocumentoSQLServer(String.valueOf(this.infEmisor.getAmbiente()), 		this.infEmisor.getRuc(), 		this.infEmisor.getCodEstablecimiento(),
+													  this.infEmisor.getCodPuntoEmision(),  this.infEmisor.getSecuencial(), this.infEmisor.getTipoComprobante(),
+													  ps_fechaEmision, 						ps_estadoTransaccion, 			ps_msgProceso,
+													  ps_msgError,							ps_xmlGenerado,					ps_xmlFirmado,
+													  ps_xmlRespuesta,						ps_xmlAutorizacion,				(this.infEmisor.getTipoEmision()==null?"1":this.infEmisor.getTipoEmision()));
+		}
+		System.out.println("-- FIN Emisor.insertaBitacoraDocumento --");
+		return resultado;
+	}
+	
 	
 	public int insertaBitacoraDocumentoPostgreSQL(String ps_ambiente,
 												  String ps_ruc,  
@@ -1360,18 +1456,14 @@ public class Emisor
     	PreparedStatement pst = null;
     	try
     	{
-	    	String sql = " select \"claveAcceso\", secuencial, \"CodEstablecimiento\", \"CodPuntEmision\", \"CodigoDocumento\", ambiente, \"tipoEmision\" "+
+	    	String sql = " select \"claveAcceso\", \"claveContingencia\", \"MSJ_ERROR\", secuencial, \"CodEstablecimiento\", \"CodPuntEmision\", \"CodigoDocumento\", ambiente, \"tipoEmision\" "+
 	    			      " from " + ConexionBase.getSchema() + "fac_cab_documentos "
 	    			     		+ " where "
-	    			     		+ " \"ESTADO_TRANSACCION\" = ? "+
-	    			     " and \"Ruc\" = ? " +
-	    			     " and ((date_part('day', now()-\"fechaIngreso\")>0) "+
-	    			     " or  (date_part('minute', now()-\"fechaIngreso\")*24*60>? and date_part('day', now()-\"fechaIngreso\")=0)) "
-	    			     //+ " and date_part('minute', age(now(), \"fechaIngreso\")) > ? "
-	    			     
-	    			     //+ " and date_part('minute', age(now(), \"fechaConsulta\")) > ? "
-	    			     //+ " and \"fechaIngreso\" >= to_date('10/11/2014', 'dd/mm/yyyy') "
-	    			     //+ " or \"fechaConsulta\" is null "
+	    			     		+ " \"ESTADO_TRANSACCION\" = ? "
+	    			     + " and \"Ruc\" = ? "
+	    			     + " and ( (date_part('day', now()- coalesce(\"fechaUltimaConsulta\", \"fechaIngreso\"))>0) "
+	    			     + "   or  "
+	    			     + "  (date_part('minute', now()- coalesce(\"fechaUltimaConsulta\", \"fechaIngreso\"))*24*60>? and date_part('day', now()- coalesce(\"fechaUltimaConsulta\", \"fechaIngreso\"))=0)) "
 	    			     + " order by \"fechaIngreso\" desc "
 	    			     + " limit ? ";
 	
@@ -1391,6 +1483,8 @@ public class Emisor
 	    		em.setSecuencial(Rs.getString("secuencial"));
 	    		em.setCodigoDocumento(Rs.getString("CodigoDocumento"));
 	    		em.setClaveAcceso(Rs.getString("claveAcceso"));
+	    		em.setClaveContingencia(Rs.getString("claveContingencia"));
+	    		em.setMensajeError(Rs.getString("MSJ_ERROR"));
 	    		
 	    		InformacionTributaria inf = new InformacionTributaria();
 	    		em.setInfEmisor(inf);
@@ -1431,7 +1525,7 @@ public class Emisor
 	    	String sql = " select ambiente,\"Ruc\",\"CodEstablecimiento\", \"CodPuntEmision\",secuencial, \"CodigoDocumento\" from fac_bitacora_ws "+
 	    			      " where  \"Ruc\" = ? "+
 	    			      " and \"ESTADO_TRANSACCION\" = ? "+
-	    			      	 " and (date_part('day', now()-\"fechaIngreso\")>0) "+
+	    			      	 " and ((date_part('day', now()-\"fechaIngreso\")>0) and (date_part('day', now()-\"fechaIngreso\")<=15)) "+
 	    			         " or  (date_part('minute', now()-\"fechaIngreso\")*24*60>? and date_part('day', now()-\"fechaIngreso\")=0) "+
 	    			     "  except "+
 	    			     " select ambiente,\"Ruc\",\"CodEstablecimiento\", \"CodPuntEmision\",secuencial, \"CodigoDocumento\" from fac_cab_documentos "+

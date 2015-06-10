@@ -12,6 +12,7 @@ import com.tradise.reportes.entidades.FacGeneral;
 import com.tradise.reportes.entidades.FacProducto;
 
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -629,5 +630,8 @@ public class ReporteServicio
      }
      return debito;
    }
+   
+   
+
  }
 

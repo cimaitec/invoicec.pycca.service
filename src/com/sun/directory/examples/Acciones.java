@@ -134,6 +134,7 @@ public class Acciones
 															emite.getInfEmisor().getSecuencial(),
 															"Recibido por el SRI",
 															"RS");
+			
 			rpSen = new ReporteSentencias();
 			if (!rpSen.existFacCabDocumentos(CabDoc))
 			{
@@ -205,7 +206,8 @@ public class Acciones
 				rpSen.updateFacCabDocumentosPostgreSQL(CabDoc);
 			}
 			rpSen.insertInfoAdicional(emite);
-			//rpSen.insertFacDetallesDocumento(CabDoc.getListDetalleDocumento());
+			if(CabDoc.getListDetalleDocumento()!= null)
+				rpSen.insertFacDetallesDocumento(CabDoc.getListDetalleDocumento());
 			
 		}
 		
@@ -426,6 +428,9 @@ public class Acciones
 		{
 			try
 			{
+				
+				//rpSen.updateFechaUltimaConsultaDocumento(CabDoc);
+				
 				emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 											   emite.getInfEmisor().getRuc(),
 											   emite.getInfEmisor().getCodEstablecimiento(),

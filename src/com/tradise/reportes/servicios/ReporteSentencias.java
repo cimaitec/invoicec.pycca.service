@@ -1090,7 +1090,12 @@ public class ReporteSentencias
      		   + "   subtotal0 = ?,  					\"subtotalNoIva\" = ?,	"
      		   + " \"totalvalorICE\" = ?, 			  	  iva12 = ?, "
      		   + " \"isActive\" = ?,					\"ESTADO_TRANSACCION\" = ?, "
-     		   + " \"MSJ_ERROR\" = ?,  					\"fechaEmision\" = to_date(?,'dd/mm/yyyy'), ";
+     		   + " \"MSJ_ERROR\" = ?, ";//  					\"fechaEmision\" = to_date(?,'dd/mm/yyyy'), ";
+	   
+	   if(cabDoc.getFechaEmision() == null)
+		   sql= sql + " \"fechaEmision\" = ?, ";
+	   else
+		   sql= sql + " \"fechaEmision\" = to_date(?,'dd/mm/yyyy'), ";
 	   
 	   if(cabDoc.getFechaInicioTransporte() == null)
 		   sql= sql + " \"fechaInicioTransporte\" = ?, ";
@@ -1757,7 +1762,77 @@ public class ReporteSentencias
 	    return msg;
 	}
 	
-	   public String updateColaDocumentos(FacCabDocumento cabDoc, 
+	
+	
+	public String updateFechaUltimaConsultaDocumento(FacCabDocumento cabDoc)
+	{
+		System.out.println("-- INICIO ReporteSentencias.updateFechaUltimaConsultaDocumento --");
+		Connection con = null;
+	    PreparedStatement ps = null;
+	    String documento = "::Ruc::"+cabDoc.getRuc()+"::CodEstablecimiento::"+ cabDoc.getCodEstablecimiento()+"::PuntoEmision::"+ cabDoc.getCodPuntEmision()+"::Secuencial::"+ cabDoc.getSecuencial()+"::TipoDocumento::"+ cabDoc.getCodigoDocumento();
+	    String msg = "";
+	    String sql = " update fac_cab_documentos "
+	    		    + " set \"fechaUltimaConsulta\" = now()  "
+	    		    + "  where ambiente = ? "
+	    		    + " and \"Ruc\" = ? " 
+     		        + " and \"CodEstablecimiento\"= ? "
+     		        + " and \"CodPuntEmision\"= ? "
+     		        + " and secuencial = ? "
+     		        + " and \"CodigoDocumento\"= ? ";
+	    
+	    try
+	    {
+	    	con = Conexion.conectar();
+	    	ps = con.prepareStatement(sql);
+	    	int i = 0;
+	    	/*i++;
+	    	ps.setString(i, estado);
+	        */
+	        i++;
+	        ps.setInt(i, cabDoc.getAmbiente().intValue());
+	        i++;
+	        ps.setString(i, cabDoc.getRuc());
+	        i++;
+	        ps.setString(i, cabDoc.getCodEstablecimiento());
+	        i++;
+	        ps.setString(i, cabDoc.getCodPuntEmision());
+	        i++;
+	        ps.setString(i, cabDoc.getSecuencial());
+	        i++;
+	        ps.setString(i, cabDoc.getCodigoDocumento());
+       
+	        int r = ps.executeUpdate();
+	        if (r > 0)
+	    	   msg = "Se Guardo Correctamente el documento->"+documento ;
+	        else
+	    	   msg = "Ocurrio un error al ingresar el documento->"+documento;
+	    } catch (Exception e) {
+	    	System.out.println(e);
+	        System.out.println(e.getMessage());
+	        System.out.println(e.getCause());
+	        System.out.println(e.getLocalizedMessage());
+	        System.out.println(e.getStackTrace());
+	        e.printStackTrace();
+	    	String str1 = msg = null;
+			return str1;
+	    } finally {
+	    	try {
+	    		if (ps != null)
+	    			ps.close();
+	    		if (con != null)
+	    			con.close();
+	    	} catch (Exception exc) {
+	    		throw new RuntimeException(exc);
+	    	}
+	    }
+	    System.out.println("-- FIN ReporteSentencias.updateFechaUltimaConsultaDocumento --");
+	    return msg;
+	}
+	
+	
+	
+	
+	public String updateColaDocumentos(FacCabDocumento cabDoc, 
 			  String estadoTransaccion)
 	{
 	Connection con = null;
@@ -2898,11 +2973,11 @@ public class ReporteSentencias
 		 try
 		 {
 		 	Con = Conexion.conectar();  	
-		 	String sql = "Select count(1) as cantidad from fac_clientes where \"Ruc\"=? and \"RucCliente\"=? and \"TipoCliente\" = ? ";
+		 	String sql = "Select count(1) as cantidad from fac_clientes where \"Ruc\"=? and \"RucCliente\"=? "; //and \"TipoCliente\" = ? ";
 	    	pst = Con.prepareStatement(sql);
 	    	pst.setString(1, ps_ruc);
 	    	pst.setString(2, ps_rucCliente);
-	    	pst.setString(3, ps_tipoCliente);
+	    	//pst.setString(3, ps_tipoCliente);
 	    	
 	    	Rs= pst.executeQuery();
 	    	while (Rs.next()){
@@ -2946,11 +3021,11 @@ public class ReporteSentencias
 		 try {
 			 Con = Conexion.conectar();
 			 
-			 String sql = "Select count(1) as cantidad from fac_usuarios where \"Ruc\"=? and \"CodUsuario\"=? and \"TipoUsuario\" = ? ";
+			 String sql = "Select count(1) as cantidad from fac_usuarios where \"Ruc\"=? and \"CodUsuario\"=? "; //and \"TipoUsuario\" = ? ";
 			 pst = Con.prepareStatement(sql);
 			 pst.setString(1, ps_ruc);
 			 pst.setString(2, ps_codCliente);
-			 pst.setString(3, ps_tipoCliente);
+			 //pst.setString(3, ps_tipoCliente);
 
 			 Rs = pst.executeQuery();
 			 while (Rs.next()) {
@@ -2970,18 +3045,7 @@ public class ReporteSentencias
 		 return cantidad;
 	 }
 	 
-   /*
-    "Ruc" character varying(20) NOT NULL, -- Ruc del Cliente
-  "RazonSocial" character varying(300), -- Razon Social del Cliente
-  "Direccion" character varying(300), -- Direccion del Cliente
-  "Email" character varying(100), -- Email del Cliente
-  "TipoCliente" character(1), -- Tipo de Cliente Cliente (C)/ Transportista (T) / Proveedor (P)
-  "TipoIdentificacion" character(2), -- Tipo de Identificacion del Cliente
-  "Rise" character varying(40), -- Codigo del Rise del Cliente
-  "Telefono" character varying(10), -- Telefono del Cliente
-  "RucCliente" character varying(13) NOT NULL,
-  "isActive" character(1),
-    * */
+	 
    public String insertaUsuarioRol(String ruc, 
 		   						   String nameCliente,  
 		   						   String rucCliente, 
@@ -3114,6 +3178,7 @@ public class ReporteSentencias
 	       
 	     } catch (Exception e) {
 	    	 //JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+	    	 System.out.println("Erron en insertaClientes...");
 	    	 System.out.println("  "+rucCliente);
 	    	 System.out.println(e);
 	         System.out.println(e.getMessage());

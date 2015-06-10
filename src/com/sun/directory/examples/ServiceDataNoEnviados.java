@@ -63,73 +63,79 @@ public class ServiceDataNoEnviados extends GenericTransaction
 		logNoEnviados = Logger.getLogger("Thread" + Thread.currentThread().getName());
 		logNoEnviados.debug("---- No Enviados ----");
 		
+		Thread.currentThread().sleep(60000);
+		
 		while ((Environment.cf.readCtrl().equals("S")))
 		{
-			Thread.currentThread().sleep(60000);
-			
-			int limite = Integer.parseInt(Environment.c.getString("facElectronica.general.NOENVIADOS.limiteConsultaNoEnviados"));
-			int minutos = Integer.parseInt(Environment.c.getString("facElectronica.general.NOENVIADOS.minutosEntreConsultas"));
-
-			Listcontenido = emite.getTrxNoEnviados(ruc, "WS", minutos, limite);
-		
-			if (Listcontenido !=null)
+			if(Environment.c.getString("facElectronica.general.AUTORIZACION.activadoConsultaNoEnviados").equals("S"))
 			{
-				if(Listcontenido.size()>0)
+				int limite = Integer.parseInt(Environment.c.getString("facElectronica.general.NOENVIADOS.limiteConsultaNoEnviados"));
+				int minutos = Integer.parseInt(Environment.c.getString("facElectronica.general.NOENVIADOS.minutosEntreConsultas"));
+
+				Listcontenido = emite.getTrxNoEnviados(ruc, "WS", minutos, limite);
+			
+				if (Listcontenido !=null)
 				{
-					for (int i=0; i < Listcontenido.size(); i++)
+					if(Listcontenido.size()>0)
 					{
-						try
+						for (int i=0; i < Listcontenido.size(); i++)
 						{
-							String nameXml = Listcontenido.get(i).getAmbiente() +
-								  		     ruc +
-								  		     Listcontenido.get(i).getCodigoDocumento()+
-								  		     Listcontenido.get(i).getCodEstablecimiento()+
-								  		     Listcontenido.get(i).getCodPuntoEmision()+
-								  		     Listcontenido.get(i).getSecuencial()+".xml";
-						
-							Listcontenido.get(i).setFilexml(nameXml);
-							
-							System.out.println("  No Enviados --> Paso a generados");
-							File docNoEnviado;
-							File docGen = new File(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml());
-							
-							if(!docGen.exists())
+							try
 							{
-								docNoEnviado = new File(infEmp.getDirRecibidos() + Listcontenido.get(i).getFilexml());
-								if (docNoEnviado.exists())
+								String nameXml = Listcontenido.get(i).getAmbiente() +
+									  		     ruc +
+									  		     Listcontenido.get(i).getCodigoDocumento()+
+									  		     Listcontenido.get(i).getCodEstablecimiento()+
+									  		     Listcontenido.get(i).getCodPuntoEmision()+
+									  		     Listcontenido.get(i).getSecuencial()+".xml";
+							
+								Listcontenido.get(i).setFilexml(nameXml);
+								
+								System.out.println("  No Enviados --> Paso a generados");
+								File docNoEnviado;
+								File docGen = new File(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml());
+								
+								if(!docGen.exists())
 								{
-									ArchivoUtils.stringToArchivo(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml(),
-						   					ArchivoUtils.archivoToString(infEmp.getDirRecibidos() + Listcontenido.get(i).getFilexml()));
-									System.out.println("  No Enviados --> Pasado a generados");
-								}
-								else
-								{
-									docNoEnviado = new File(infEmp.getDirRecibidos() +"reenviados/" + Listcontenido.get(i).getFilexml());
+									docNoEnviado = new File(infEmp.getDirRecibidos() + Listcontenido.get(i).getFilexml());
 									if (docNoEnviado.exists())
 									{
 										ArchivoUtils.stringToArchivo(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml(),
-							   					ArchivoUtils.archivoToString(infEmp.getDirRecibidos() +"reenviados/" + Listcontenido.get(i).getFilexml()));
+							   					ArchivoUtils.archivoToString(infEmp.getDirRecibidos() + Listcontenido.get(i).getFilexml()));
 										System.out.println("  No Enviados --> Pasado a generados");
 									}
+									else
+									{
+										docNoEnviado = new File(infEmp.getDirRecibidos() +"reenviados/" + Listcontenido.get(i).getFilexml());
+										if (docNoEnviado.exists())
+										{
+											ArchivoUtils.stringToArchivo(infEmp.getDirGenerado() + Listcontenido.get(i).getFilexml(),
+								   					ArchivoUtils.archivoToString(infEmp.getDirRecibidos() +"reenviados/" + Listcontenido.get(i).getFilexml()));
+											System.out.println("  No Enviados --> Pasado a generados");
+										}
+									}
+										
 								}
-									
+							
+							}catch(Exception excep)
+							{
+								System.out.println("  DataNoEnviados --> Error");
+								System.out.println(excep);
+					            System.out.println(excep.getMessage());
+					            System.out.println(excep.getCause());
+					        	System.out.println(excep.getLocalizedMessage());
+					        	System.out.println(excep.getStackTrace());
+								excep.printStackTrace();  
 							}
 						
-						}catch(Exception excep)
-						{
-							System.out.println("  DataNoEnviados --> Error");
-							System.out.println(excep);
-				            System.out.println(excep.getMessage());
-				            System.out.println(excep.getCause());
-				        	System.out.println(excep.getLocalizedMessage());
-				        	System.out.println(excep.getStackTrace());
-							excep.printStackTrace();  
+							Thread.currentThread().sleep(500);
 						}
-					
-						Thread.currentThread().sleep(500);
 					}
 				}
 			}
+			
+			Thread.currentThread().sleep(30000);
+			
 		}
 
 	}

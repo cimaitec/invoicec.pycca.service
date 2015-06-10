@@ -128,7 +128,7 @@ public class ServiceData extends com.util.util.key.GenericTransaction
 		Thread hilo = null;
 		contador = 0;
 		
-		/*
+		
 		try{
 			ServiceDataAutorizacion hiloAutorizacion = new ServiceDataAutorizacion(ruc);
 			Thread threadAutorizacion = new Thread(hiloAutorizacion);
@@ -152,7 +152,15 @@ public class ServiceData extends com.util.util.key.GenericTransaction
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		*/
+		
+		/*try{
+			ServiceDataNoAutorizados hiloNoAutorizados = new ServiceDataNoAutorizados(ruc);
+			Thread threadNoAutorizados = new Thread(hiloNoAutorizados);
+			threadNoAutorizados.start();
+		}catch(Exception e){
+			e.printStackTrace();
+		}*/
+		
 		
 		while ((Environment.cf.readCtrl().equals("S")))
 		{
@@ -223,7 +231,7 @@ public class ServiceData extends com.util.util.key.GenericTransaction
 					        if (fremove.exists()){
 					        	fremove.delete();
 					        }
-		    		
+					        
 					        if(fileProcesar.renameTo(new File(infEmp.getDirRecibidos() + fileProcesar.getName())))
 					        {
 					        	fileProcesar =new File(infEmp.getDirRecibidos() + fileProcesar.getName());

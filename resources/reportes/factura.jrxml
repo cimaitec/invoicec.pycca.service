@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="384"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -72,6 +72,7 @@
 	<parameter name="SUBTOTAL_12" class="java.lang.String"/>
 	<parameter name="FECHA_AUTORIZACION" class="java.lang.String"/>
 	<parameter name="SUBTOTAL_0" class="java.lang.String"/>
+	<parameter name="OC" class="java.lang.String"/>
 	<field name="codigoPrincipal" class="java.lang.String"/>
 	<field name="codigoAuxiliar" class="java.lang.String"/>
 	<field name="cantidad" class="java.lang.String"/>
@@ -339,7 +340,7 @@
 				<text><![CDATA[Telefono:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy">
-				<reportElement mode="Transparent" x="7" y="316" width="150" height="18"/>
+				<reportElement mode="Transparent" x="7" y="319" width="150" height="15"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
@@ -356,7 +357,7 @@
 				<text><![CDATA[FECHA EMISION]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="184" y="316" width="116" height="19"/>
+				<reportElement x="184" y="319" width="116" height="13"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
@@ -371,6 +372,23 @@
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[GUIA DE REMISION]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="343" y="319" width="116" height="13"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{OC}==null?" ":$P{OC}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="343" y="331" width="96" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="345" y="332" width="103" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OC]]></text>
 			</staticText>
 		</band>
 	</title>

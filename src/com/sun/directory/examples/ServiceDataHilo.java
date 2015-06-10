@@ -136,7 +136,7 @@ public class ServiceDataHilo extends GenericTransaction
 			SimpleDateFormat sm = new SimpleDateFormat("dd-MM-yyyy");
 			String strDate = sm.format(new Date());
 			
-			emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+			/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 											emite.getInfEmisor().getRuc(), 
 											emite.getInfEmisor().getCodEstablecimiento(),
 											emite.getInfEmisor().getCodPuntoEmision(),
@@ -150,12 +150,16 @@ public class ServiceDataHilo extends GenericTransaction
 											"", 
 											"", 
 											"", 
-											"1");
+											"1");*/
+			
+			emite.insertaBitacoraDocumento(strDate, "IN", emite.toString() + "Carga Inicial del Proceso de Despacho",
+										   "", "", "",  "",  "");
+			
 			
 			try
 			{
 				leerXml(infoEmp.getDirRecibidos() + emite.getFilexml(), emite);
-				emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+				/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 												emite.getInfEmisor().getRuc(),
 												emite.getInfEmisor().getCodEstablecimiento(),
 												emite.getInfEmisor().getCodPuntoEmision(),
@@ -165,7 +169,14 @@ public class ServiceDataHilo extends GenericTransaction
 												"LX",
 												emite.toString() + "Lectura del XML Terminada Proceso de Despacho",
 												"", "", "", "", "",
-												emite.getInfEmisor().getTipoEmision());
+												emite.getInfEmisor().getTipoEmision());*/
+				
+				emite.insertaBitacoraDocumento(strDate, 
+											   "LX",
+											   emite.toString() + "Lectura del XML Terminada Proceso de Despacho",
+											   "", "", "", "", "");
+				
+				
 				
 				// Generacion de Xml de Backup
 				li_result = copiarXml(infoEmp.getDirRecibidos() + emite.getFilexml());
@@ -177,7 +188,7 @@ public class ServiceDataHilo extends GenericTransaction
 						emite.setFileXmlBackup(infoEmp.getDirRecibidos() + emite.getFilexml().replace(".xml", "_backup.xml"));
 						emite = ModifyDocumentAcceso.addPutClaveAcceso(infoEmp.getDirRecibidos() + emite.getFilexml(), emite);
 						
-						emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+						/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 														emite.getInfEmisor().getRuc(),
 														emite.getInfEmisor().getCodEstablecimiento(),
 														emite.getInfEmisor().getCodPuntoEmision(),
@@ -187,7 +198,15 @@ public class ServiceDataHilo extends GenericTransaction
 														"MA",
 														emite.toString() + "Modificacion de Clave de Acceso Terminada Proceso de Despacho",
 														"", "", "", "", "",
-														emite.getInfEmisor().getTipoEmision());
+														emite.getInfEmisor().getTipoEmision());*/
+						
+						emite.insertaBitacoraDocumento(strDate,
+													   "MA",
+													   emite.toString() + "Modificacion de Clave de Acceso Terminada Proceso de Despacho",
+													   "", "", "", "", "");
+						
+						
+						
 					} else {
 					}
 				}
@@ -213,6 +232,8 @@ public class ServiceDataHilo extends GenericTransaction
 			} catch (Exception e) {
 				mensaje = e.getMessage();
 				emite.setResultado(-1);
+				System.out.println(e.getMessage());
+				System.out.println(e.getStackTrace());
 			}
 			if (emite.getResultado() == 0)
 			{
@@ -222,7 +243,7 @@ public class ServiceDataHilo extends GenericTransaction
 																						infoEmp.getDirRecibidos() + emite.getFilexml(),
 																						infoEmp.getPathXsd());
 				
-				emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+				/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 															  emite.getInfEmisor().getRuc(),
 															  emite.getInfEmisor().getCodEstablecimiento(),
 															  emite.getInfEmisor().getCodPuntoEmision(),
@@ -232,7 +253,17 @@ public class ServiceDataHilo extends GenericTransaction
 															  "VX",
 															  emite.toString() + "Validacion XSD Terminada " + ls_validaXSD,
 															  "", "", "", "", "",
-															  emite.getInfEmisor().getTipoEmision());
+															  emite.getInfEmisor().getTipoEmision());*/
+				
+				emite.insertaBitacoraDocumento(strDate,
+						  					   "VX",
+						  					   emite.toString() + "Validacion XSD Terminada " + ls_validaXSD,
+						  					   "", "", "", "", "");
+				
+				
+				
+				
+				
 				// VPI - Validacion XSD que estaba al ultimo -- Logica inversa
 				if (!(ls_validaXSD == null)/* || !(ls_validaXSD.equals("")) */)
 				{
@@ -241,7 +272,7 @@ public class ServiceDataHilo extends GenericTransaction
 					// Error en validacion del XSD
 					sm = new SimpleDateFormat("dd-MM-yyyy");
 					strDate = sm.format(new Date());
-					emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+					/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 																	emite.getInfEmisor().getRuc(),
 																	emite.getInfEmisor().getCodEstablecimiento(),
 																	emite.getInfEmisor().getCodPuntoEmision(),
@@ -251,7 +282,15 @@ public class ServiceDataHilo extends GenericTransaction
 																	"EX",
 																	"Validacion en XSD::" + ls_validaXSD, 
 																	"", "", "",	"", "",
-																	emite.getInfEmisor().getTipoEmision());
+																	emite.getInfEmisor().getTipoEmision());*/
+					
+					emite.insertaBitacoraDocumento(strDate,
+												   "EX",
+												   "Validacion en XSD::" + ls_validaXSD, 
+												   "", "", "",	"", "");
+					
+					
+					
 					int li_envio = enviaEmail("message_error", emite, "", "Validacion en XSD::" + ls_validaXSD, null, null);
 				} else
 				{
@@ -288,7 +327,7 @@ public class ServiceDataHilo extends GenericTransaction
 																								null,//infoEmp.getClaveFirma(),//NULL
 																								infoEmp.getRutaFirma());
 					}
-					emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+					/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 													emite.getInfEmisor().getRuc(),
 													emite.getInfEmisor().getCodEstablecimiento(),
 													emite.getInfEmisor().getCodPuntoEmision(),
@@ -298,7 +337,14 @@ public class ServiceDataHilo extends GenericTransaction
 													"FX",
 													emite.toString() + "::" + emite.toStringInfo() + "::Validacion Firmado Terminada " + respuestaFirma,
 													"", "", "", "", "",
-													emite.getInfEmisor().getTipoEmision());
+													emite.getInfEmisor().getTipoEmision());*/
+					
+					
+					emite.insertaBitacoraDocumento(strDate,
+												   "FX",
+												   emite.toString() + "::" + emite.toStringInfo() + "::Validacion Firmado Terminada " + respuestaFirma,
+												   "", "", "", "", "");
+					
 					
 					
 					// Respuesta del firmado del Documento
@@ -314,7 +360,7 @@ public class ServiceDataHilo extends GenericTransaction
 							System.out.println("Error en envio de Mail");
 						
 						// Se regitra en bitacora error en firmado
-						emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+						/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 														emite.getInfEmisor().getRuc(),
 														emite.getInfEmisor().getCodEstablecimiento(),
 														emite.getInfEmisor().getCodPuntoEmision(),
@@ -324,9 +370,52 @@ public class ServiceDataHilo extends GenericTransaction
 														"EF",// Error Firma
 														emite.toString() + "::" + emite.toStringInfo() + "::Error al firmar documento " + respuestaFirma,
 														"", "", "", "", "",
-														emite.getInfEmisor().getTipoEmision());
+														emite.getInfEmisor().getTipoEmision());*/
+						
+						
+						emite.insertaBitacoraDocumento(strDate,
+													   "EF",// Error Firma
+													   emite.toString() + "::" + emite.toStringInfo() + "::Error al firmar documento " + respuestaFirma,
+													   "", "", "", "", "");
 						// VPI - Fin error en firmado
 					} else {
+						
+						
+						
+						
+						// VALIDO SI EL DOCUMENTO EXITE EN RS
+						
+						/*if(emite.existeDocumentoEnEstado(emite, "RS"))
+						{
+							System.out.println(" Existe documento en RS...");
+							return;
+						}*/
+						
+						///
+						
+						
+						/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+								emite.getInfEmisor().getRuc(),
+								emite.getInfEmisor().getCodEstablecimiento(),
+								emite.getInfEmisor().getCodPuntoEmision(),
+								emite.getInfEmisor().getSecuencial(),
+								emite.getInfEmisor().getTipoComprobante(),
+								strDate,
+								"CA",
+								emite.toString() + "::" + emite.toStringInfo() + "::Antes de envio a SRI, Clave de Aceso "+emite.getInfEmisor().getClaveAcceso(),
+								"ClaveAcceso"+emite.getInfEmisor().getClaveAcceso(), "", "", "", "",
+								emite.getInfEmisor().getTipoEmision());*/
+						
+						emite.insertaBitacoraDocumento(strDate,
+													   "CA",
+													   emite.toString() + "::" + emite.toStringInfo() + "::Antes de envio a SRI, Clave de Aceso "+emite.getInfEmisor().getClaveAcceso(),
+													   "ClaveAcceso"+emite.getInfEmisor().getClaveAcceso(), "", "", "", "");
+						
+						
+						
+						
+						
+						
 						File fileFirmado = new File(infoEmp.getDirFirmados() + emite.getFilexml());
 						ec.gob.sri.comprobantes.ws.RespuestaSolicitud respuestaRecepcion = new ec.gob.sri.comprobantes.ws.RespuestaSolicitud();
 						try {
@@ -355,7 +444,7 @@ public class ServiceDataHilo extends GenericTransaction
 						
 						if (respuestaRecepcion.getEstado().equals("RECIBIDA"))
 						{
-							emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+							/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 									emite.getInfEmisor().getRuc(),
 									emite.getInfEmisor().getCodEstablecimiento(),
 									emite.getInfEmisor().getCodPuntoEmision(),
@@ -365,7 +454,12 @@ public class ServiceDataHilo extends GenericTransaction
 									"TR",
 									emite.toString() + "::" + emite.toStringInfo() + "::Transaccion Recibida, Clave de Aceso "+emite.getInfEmisor().getClaveAcceso(),
 									"", "", "", "", "",
-									emite.getInfEmisor().getTipoEmision());
+									emite.getInfEmisor().getTipoEmision());*/
+							
+							emite.insertaBitacoraDocumento(strDate,
+														   "TR",
+														   emite.toString() + "::" + emite.toStringInfo() + "::Transaccion Recibida, Clave de Aceso "+emite.getInfEmisor().getClaveAcceso(),
+														   "", "", "", "", "");
 							
 							ac.documentoRecibido(emite, infoEmp);
 							/*************************************************************************/
@@ -401,7 +495,7 @@ public class ServiceDataHilo extends GenericTransaction
 							sm = new SimpleDateFormat("dd-MM-yyyy");
 							strDate = sm.format(new Date());
 
-							emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+							/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 																			emite.getInfEmisor().getRuc(),
 																			emite.getInfEmisor().getCodEstablecimiento(),
 																			emite.getInfEmisor().getCodPuntoEmision(),
@@ -410,8 +504,14 @@ public class ServiceDataHilo extends GenericTransaction
 																			strDate,
 																			"TD",
 																			ls_mensaje_respuesta,
-																			"", "", "", "",	"",
-																			emite.getInfEmisor().getTipoEmision());
+																			emite.getInfEmisor().getClaveAcceso(), "", "", "",	"",
+																			emite.getInfEmisor().getTipoEmision());*/
+							
+							emite.insertaBitacoraDocumento(strDate,
+														   "TD",
+														   ls_mensaje_respuesta,
+														   emite.getInfEmisor().getClaveAcceso(), "", "", "",	"");
+							
 							// VPI - se actualiza informacion en
 							// fac_cab_documento
 							int li_envio = enviaEmail("message_error", emite, "", "Transaccion devuelta : "+ls_mensaje_respuesta, null, null);
@@ -446,7 +546,7 @@ public class ServiceDataHilo extends GenericTransaction
 
 								if (emite.getInfEmisor().getTipoEmision().equals("1"))
 								{
-									emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+									/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 																	emite.getInfEmisor().getRuc(),
 																	emite.getInfEmisor().getCodEstablecimiento(),
 																	emite.getInfEmisor().getCodPuntoEmision(),
@@ -455,8 +555,14 @@ public class ServiceDataHilo extends GenericTransaction
 																	strDate,
 																	"IN",
 																	emite.toString() + "Proceso Consulta RecepcionComprobantes Sin Respuesta",
-																	"", "", "", "", "",
-																	emite.getInfEmisor().getTipoEmision());
+																	emite.getInfEmisor().getClaveAcceso(), "", "", "", "",
+																	emite.getInfEmisor().getTipoEmision());*/
+									
+									emite.insertaBitacoraDocumento(strDate,
+																   "IN",
+																   emite.toString() + "Proceso Consulta RecepcionComprobantes Sin Respuesta",
+																   emite.getInfEmisor().getClaveAcceso(), "", "", "", "");
+									
 
 									String ls_clave_contingencia = emite.obtieneClaveContingencia(emite.getInfEmisor().getRuc(),
 																								  emite.getInfEmisor().getAmbiente(),
@@ -480,6 +586,7 @@ public class ServiceDataHilo extends GenericTransaction
 									
 									emite.getInfEmisor().setTipoEmision("2");
 									emite.getInfEmisor().setClaveAcceso(ls_clave_accesoCont);
+
 									
 									if (emite.getInfEmisor().getCodDocumento().equals("01"))
 									{
@@ -541,7 +648,14 @@ public class ServiceDataHilo extends GenericTransaction
 									
 									if (emite.getInfEmisor().getCodDocumento().equals("06"))
 									{
-										CabDoc=preparaCabDocumentoGuiaRem(emite, infoEmp.getRuc(), emite.getInfEmisor().getCodEstablecimiento(), emite.getInfEmisor().getCodPuntoEmision(), emite.getInfEmisor().getTipoComprobante(), emite.getInfEmisor().getSecuencial(), "No Receptado SRI Contingencia","CT");
+										CabDoc=preparaCabDocumentoGuiaRem(emite,
+																		  infoEmp.getRuc(),
+																		  emite.getInfEmisor().getCodEstablecimiento(),
+																		  emite.getInfEmisor().getCodPuntoEmision(),
+																		  emite.getInfEmisor().getTipoComprobante(),
+																		  emite.getInfEmisor().getSecuencial(),
+																		  "No Receptado SRI Contingencia",
+																		  "CT");
 										rpSen = new ReporteSentencias();
 										if (!rpSen.existFacCabDocumentos(CabDoc))
 										{
@@ -592,7 +706,7 @@ public class ServiceDataHilo extends GenericTransaction
 									// VPI - si la emision es dierente de "1"
 									// osea que vuelva caer en contingencia
 									System.out.println("...Se va a contignecia otra vez...");
-									emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
+									/*emite.insertaBitacoraDocumento(String.valueOf(emite.getInfEmisor().getAmbiente()),
 																	emite.getInfEmisor().getRuc(),
 																	emite.getInfEmisor().getCodEstablecimiento(),
 																	emite.getInfEmisor().getCodPuntoEmision(),
@@ -601,8 +715,17 @@ public class ServiceDataHilo extends GenericTransaction
 																	strDate,
 																	"IN",
 																	emite.toString() + "ReProceso Consulta RecepcionComprobantes Sin Respuesta",
-																	"", "", "", "", "",
-																	emite.getInfEmisor().getTipoEmision());
+																	//"", "", "", "", "",
+																	emite.getInfEmisor().getClaveAcceso(), "", "", "", "",
+																	emite.getInfEmisor().getTipoEmision());*/
+									
+									emite.insertaBitacoraDocumento(strDate,
+																   "IN",
+																   emite.toString() + "ReProceso Consulta RecepcionComprobantes Sin Respuesta",
+																   emite.getInfEmisor().getClaveAcceso(), "", "", "", "");
+									
+									
+									
 									
 									// Actualizar estado del documento.
 									try {
@@ -2267,44 +2390,44 @@ public class ServiceDataHilo extends GenericTransaction
             emite.getInfEmisor().setValorModificado(Double.parseDouble((String) expr.evaluate(doc, XPathConstants.STRING)));
             
             expr = xpath.compile("/"+ls_documento+"/infoNotaDebito/valorTotal/text()");
-            emite.getInfEmisor().setImporteTotal((Double) expr.evaluate(doc, XPathConstants.STRING));
-                      
+            emite.getInfEmisor().setImporteTotal(Double.parseDouble((String) expr.evaluate(doc, XPathConstants.STRING)));
+            
             
             expr = xpath.compile("/"+ls_documento+"/"+ls_tipoDocumento+"/totalConImpuestos/totalImpuesto[*]/codigo/text()");
-            List<String> listCodigo = new ArrayList();            
-            NodeList nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listCodigo = new ArrayList();
+            NodeList nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listCodigo.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/"+ls_tipoDocumento+"/totalConImpuestos/totalImpuesto[*]/tarifa/text()");
-            List<String> listTarifa = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listTarifa = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listCodigo.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/"+ls_tipoDocumento+"/totalConImpuestos/totalImpuesto[*]/codigoPorcentaje/text()");
-            List<String> listCodigoPorcentaje = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listCodigoPorcentaje = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listCodigoPorcentaje.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/"+ls_tipoDocumento+"/totalConImpuestos/totalImpuesto[*]/baseImponible/text()");
-            List<String> listBaseImponible = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listBaseImponible = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listBaseImponible.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/"+ls_tipoDocumento+"/totalConImpuestos/totalImpuesto[*]/valor/text()");
-            List<String> listValor = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listValor = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listValor.add(nodes.item(i).getNodeValue());
             }
-            ArrayList<DetalleTotalImpuestos> listDetDetImpuestos = new ArrayList<DetalleTotalImpuestos>();             
+            ArrayList<DetalleTotalImpuestos> listDetDetImpuestos = new ArrayList<DetalleTotalImpuestos>();
             for (int i=0; i<listCodigo.size(); i++){
             	DetalleTotalImpuestos detImp = new DetalleTotalImpuestos();
             	detImp.setCodTotalImpuestos(Integer.parseInt(listCodigo.get(i).toString()));
@@ -2322,21 +2445,21 @@ public class ServiceDataHilo extends GenericTransaction
                                                
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/codigoInterno/text()");
             List<String> listCodPrin = new ArrayList();
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int l=0; l<nodes.getLength(); l++){
             	listCodPrin.add(nodes.item(l).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/codigoAdicional/text()");
-            List<String> listCodAux = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listCodAux = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listCodAux.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/descripcion/text()");
-            List<String> listDescrip = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listDescrip = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listDescrip.add(nodes.item(i).getNodeValue());
             }
@@ -2349,29 +2472,29 @@ public class ServiceDataHilo extends GenericTransaction
             }
             
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/precioUnitario/text()");
-            List<String> listPrecioUnitario = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listPrecioUnitario = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listPrecioUnitario.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/descuento/text()");
-            List<String> listDescuento = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listDescuento = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listDescuento.add(nodes.item(i).getNodeValue());
             }
             
             expr = xpath.compile("/"+ls_documento+"/detalles/detalle[*]/precioTotalSinImpuesto/text()");
-            List<String> listPrecioTotalSinImpuesto = new ArrayList();            
-            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));            
+            List<String> listPrecioTotalSinImpuesto = new ArrayList();
+            nodes =((NodeList) expr.evaluate(doc, XPathConstants.NODESET));
             for (int i=0; i<nodes.getLength(); i++){
             	listPrecioTotalSinImpuesto.add(nodes.item(i).getNodeValue());
             }
             
             for (int i=0; i<listCodPrin.size(); i++){
-            	ArrayList<DocumentoImpuestos> listDetImpuestosDocumentos = new ArrayList<DocumentoImpuestos>();            	
-            	DetalleDocumento detDoc = new DetalleDocumento();            	
+            	ArrayList<DocumentoImpuestos> listDetImpuestosDocumentos = new ArrayList<DocumentoImpuestos>();   	
+            	DetalleDocumento detDoc = new DetalleDocumento();
             	detDoc.setCodigoPrincipal(listCodPrin.get(i).toString());
             	//detDoc.setCodigoAuxiliar(listCodAux.get(i).toString());
             	detDoc.setDescripcion(listDescrip.get(i).toString());
@@ -3458,22 +3581,26 @@ public class ServiceDataHilo extends GenericTransaction
 		
 		cabDoc.setTotalDescuento(emite.getInfEmisor().getTotalDescuento());
 		cabDoc.setPropina(emite.getInfEmisor().getPropina());
-
+		
 		ArrayList<DetalleTotalImpuestos> lisDetImp = emite.getInfEmisor().getListDetDetImpuestos();
-		for ( DetalleTotalImpuestos det : lisDetImp){
-			if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 2)){
-				cabDoc.setSubtotal12(det.getBaseImponibleImp());
-				cabDoc.setIva12(det.getValorImp());				
-			}
-			if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 0)){
-				//cabDoc.setSubtotal0(det.getValorImp());
-				cabDoc.setSubtotal0(det.getBaseImponibleImp());
-			}
-			if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 6)){
-				//cabDoc.setSubtotal0(det.getValorImp());
-				cabDoc.setSubtotalNoIva(det.getBaseImponibleImp());
+		if(lisDetImp != null)
+		{
+			for ( DetalleTotalImpuestos det : lisDetImp){
+				if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 2)){
+					cabDoc.setSubtotal12(det.getBaseImponibleImp());
+					cabDoc.setIva12(det.getValorImp());				
+				}
+				if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 0)){
+					//cabDoc.setSubtotal0(det.getValorImp());
+					cabDoc.setSubtotal0(det.getBaseImponibleImp());
+				}
+				if ((det.getCodTotalImpuestos() == 2)&&(det.getCodPorcentImp() == 6)){
+					//cabDoc.setSubtotal0(det.getValorImp());
+					cabDoc.setSubtotalNoIva(det.getBaseImponibleImp());
+				}
 			}
 		}
+		
 		
 		double total =  cabDoc.getSubtotal12()+
 				   		cabDoc.getSubtotalNoIva()+
